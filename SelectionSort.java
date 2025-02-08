@@ -6,6 +6,7 @@ public class SelectionSort implements AlgoritmosSort<Integer>{
 
     /**
      * Metodo para ordenar el array de menor a mayor.
+     * @param array Es el arreglo de enteros que se deben ordenar.
      */
     @Override
     public void sort(Integer[] array) {

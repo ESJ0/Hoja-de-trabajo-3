@@ -24,19 +24,5 @@ public class InsertionSort < T extends Comparable<T>> implements AlgoritmosSort<
             array[j + 1] = key;
         }
     }
-
-    /* A utility function to print array of size n*/
-
-    static <T> void printArray(T[] array) {
-        int n = array.length;
-        for (int i = 0; i < n; ++i)
-            System.out.print(array[i] + " ");
-        System.out.println();
-        
-    }
-
-    
-
-
     
 }

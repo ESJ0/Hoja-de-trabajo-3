@@ -4,13 +4,15 @@ public class Main {
     public static void main(String[] args) {
 
         String archivo = "3000.txt";
-        int cantidad = 3000;
         int[] tamanos = {10, 100, 500, 1000, 1200, 1600, 1800, 2000, 2500, 3000}; 
 
 
         for(int tamano : tamanos){
+
+            System.out.println("\nTamaño: " + tamano);
+
             try {
-                GeneradorYLecotorDeNumeros.generadorDeNumeros(archivo, cantidad);
+                GeneradorYLecotorDeNumeros.generadorDeNumeros(archivo, tamano);
 
             } catch (IOException e) {
                 e.printStackTrace();

@@ -1,15 +1,15 @@
 /**
- * Clase que implementa el algoritmo SelectionSort, para ordenarlo del valor mas pequeno al mayor.
+ * Clase que implementa el algoritmo SelectionSort, para ordenarlo del valor más pequeno al mayor.
  */
-
-public class SelectionSort implements AlgoritmosSort<Integer>{
+public class SelectionSort<T extends Comparable<T>> implements AlgoritmosSort<T> {
 
     /**
      * Metodo para ordenar el array de menor a mayor.
-     * @param array Es el arreglo de enteros que se deben ordenar.
+     * @author: https://www.geeksforgeeks.org/merge-sort/
+     * @param array Es el arreglo de elementos comparables que se deben ordenar.
      */
     @Override
-    public void sort(Integer[] array) {
+    public void sort(T[] array) {
         for (int i = 0; i < array.length - 1; i++) {
             int minIndex = i;
             for (int j = i + 1; j < array.length; j++) {
@@ -17,13 +17,13 @@ public class SelectionSort implements AlgoritmosSort<Integer>{
                     minIndex = j;
                 }
             }
-            Integer temp = array[minIndex];
+            T temp = array[minIndex];
             array[minIndex] = array[i];
             array[i] = temp;
         }
     }
-
 }
+
 
 
 

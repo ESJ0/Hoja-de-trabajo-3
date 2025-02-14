@@ -1,34 +1,46 @@
 import java.util.*;
 
 /**
- * Clase que implementara el algoritmo RadixSort, para ordenarlo por su signo menos significativo al mayor.
+ * Clase que implementa el algoritmo RadixSort, ordenando por su digito menos significativo al mayor.
  */
-
-class RadixSort implements AlgoritmosSort<Integer> {
+class RadixSort<T extends Number & Comparable<T>> implements AlgoritmosSort<T> {
 
     /**
-     * Metodo de utilidad para obtener el valor maximo en el array.
-     * @param array Es el arreglo de enteros que se deben ordenar.
+     * Metodo para ordenar un array usando Radix Sort.
+     * @author: https://www.geeksforgeeks.org/merge-sort/
+     * @param array Es el arreglo de nnmeros que se deben ordenar.
      */
     @Override
-    public void sort(Integer[] array) {
-        int max = Arrays.stream(array).max(Integer::compare).orElse(0);
+    public void sort(T[] array) {
+        if (array == null || array.length == 0) return;
+
+        int[] intArray = Arrays.stream(array)
+                               .mapToInt(Number::intValue)
+                               .toArray();
+
+        int max = Arrays.stream(intArray).max().orElse(0); 
         for (int exp = 1; max / exp > 0; exp *= 10) {
-            countingSort(array, exp);
+            radixSort(intArray, exp);
+        }
+
+        // Convertimos de nuevo el array ordenado a T
+        for (int i = 0; i < array.length; i++) {
+            array[i] = (T) Integer.valueOf(intArray[i]); 
         }
     }
 
     /**
-     * Metodo que se encarga de ordennar por cuentas el array en funcion del digito en una posicion especifica.
+     * Metodo que ordena el array segun el dígito en una posición especifica usando Counting Sort.
+     * @author: https://www.geeksforgeeks.org/merge-sort/
      * @param array Es el arreglo de enteros que se deben ordenar.
-     * @param exp Es el exponente correspondiente a la posicion del digito actual.
+     * @param exp Es el exponente correspondiente a la posicion del dígito actual.
      */
-    private void countingSort(Integer[] array, int exp) {
+    private void radixSort(int[] array, int exp) {
         int n = array.length;
-        Integer[] output = new Integer[n];
+        int[] output = new int[n];
         int[] count = new int[10];
         Arrays.fill(count, 0);
-        
+
         for (int i = 0; i < n; i++) {
             count[(array[i] / exp) % 10]++;
         }
@@ -41,8 +53,8 @@ class RadixSort implements AlgoritmosSort<Integer> {
         }
         System.arraycopy(output, 0, array, 0, n);
     }
-
 }
+
 
 
 

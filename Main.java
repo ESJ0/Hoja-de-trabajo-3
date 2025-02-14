@@ -60,6 +60,28 @@ public class Main {
                 System.out.println("Cantidad de datos: " +tamano+ " .En un tiempo de ejecución (nanosegundos): " + duration3);
                 System.out.println("Cantidad de datos: " +tamano+ " .En un tiempo de ejecución (milisegundos): " + duration3 / 1000000);
 
+                System.out.println("\n-----------------------RadixSort--------------------------");
+                long startTime4 = System.nanoTime();
+                
+                RadixSort<Integer> radixSort = new RadixSort<>();
+                radixSort.sort(numeros);
+
+                long endTime4 = System.nanoTime();
+                long duration4 = endTime4 - startTime4;
+
+                System.out.println("Cantidad de datos: " +tamano+ " .En un tiempo de ejecución (nanosegundos): " + duration4);
+                System.out.println("Cantidad de datos: " +tamano+ " .En un tiempo de ejecución (milisegundos): " + duration4 / 1000000);
+
+                System.out.println("\n-----------------------SelectionSort--------------------------");
+                SelectionSort<Integer> selectionSort = new SelectionSort<>();
+                selectionSort.sort(numeros);
+
+                long endTime5 = System.nanoTime();
+                long duration5 = endTime5 - startTime;
+
+                System.out.println("Cantidad de datos: " +tamano+ " .En un tiempo de ejecución (nanosegundos): " + duration5);
+                System.out.println("Cantidad de datos: " +tamano+ " .En un tiempo de ejecución (milisegundos): " + duration5 / 1000000);
+                
             } catch (IOException e) {
                 e.printStackTrace();
             }

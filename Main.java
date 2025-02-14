@@ -3,18 +3,23 @@ import java.io.IOException;
 public class Main {
     public static void main(String[] args) {
 
+        String archivo = "1000.txt";
+        int cantidad = 1000;;
+
+
         try {
-            GeneradorYLecotorDeNumeros.generadorDeNumeros("1000.txt", 1000);
+            GeneradorYLecotorDeNumeros.generadorDeNumeros(archivo, cantidad);
 
         } catch (IOException e) {
             e.printStackTrace();
         }
+ 
 
         try {
 
             System.out.println("\n-----------------------InsertionSort----------------------");
 
-            Integer[] numeros = GeneradorYLecotorDeNumeros.LectorDeNumeros("1000.txt"); 
+            Integer[] numeros = GeneradorYLecotorDeNumeros.LectorDeNumeros(archivo); 
             InsertionSort<Integer> insertionSort = new InsertionSort<>();
 
             long startTime = System.nanoTime();

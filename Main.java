@@ -39,7 +39,17 @@ public class Main {
             System.out.println("Tiempo de ejecución (nanosegundos): " + duration2);
             System.out.println("Tiempo de ejecución (milisegundos): " + duration2 / 1000000);
 
+            System.out.println("\n-----------------------QuickSort--------------------------");
+            long startTime3 = System.nanoTime();
+            
+            QuickSort<Integer> quickSort = new QuickSort<>();
+            quickSort.sort(numeros);
 
+            long endTime3 = System.nanoTime();
+            long duration3 = endTime3 - startTime3;
+
+            System.out.println("Tiempo de ejecución (nanosegundos): " + duration3);
+            System.out.println("Tiempo de ejecución (milisegundos): " + duration3 / 1000000);
 
         } catch (IOException e) {
             e.printStackTrace();

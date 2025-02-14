@@ -1,9 +1,10 @@
 public class InsertionSort < T extends Comparable<T>> implements AlgoritmosSort<T> {
 
     /**
-     * Este metodo se encarga de ordenar un array de datos genericos de menor a mayor.
+     * Este metodo se encarga de ordenar un array de menor a mayor.
+     * Se hicieron modificaciones para el uso de datos genericos.
      * @author: https://www.geeksforgeeks.org/insertion-sort/
-     * @param numeros Es el array de enteros que se va a ordenar.
+     * @param array es el array de datos que se va a ordenar.
      */
 
     @Override
